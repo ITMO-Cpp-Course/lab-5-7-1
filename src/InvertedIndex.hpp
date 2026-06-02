@@ -1,15 +1,17 @@
 #pragma once
 #include "Document.hpp"
+#include <optional>
+#include <string>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
-#include <string>
-#include <optional>
 
-namespace indexer {
+namespace indexer
+{
 
-class InvertedIndex {
-public:
+class InvertedIndex
+{
+  public:
     void add(Document doc);
     void remove(DocumentId id);
 
@@ -19,7 +21,7 @@ public:
     std::size_t size() const;
     void clear();
 
-private:
+  private:
     std::unordered_map<DocumentId, Document> docs_;
     std::unordered_map<std::string, std::unordered_set<DocumentId>> index_;
     std::unordered_map<DocumentId, std::unordered_map<std::string, std::size_t>> counts_;

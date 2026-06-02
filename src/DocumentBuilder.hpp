@@ -1,13 +1,15 @@
 #pragma once
 #include "Document.hpp"
+#include <atomic>
 #include <string>
 #include <vector>
-#include <atomic>
 
-namespace indexer {
+namespace indexer
+{
 
-class DocumentBuilder {
-public:
+class DocumentBuilder
+{
+  public:
     DocumentBuilder();
 
     // Создать документ из имени и текста (id генерируется автоматически)
@@ -16,7 +18,7 @@ public:
     // Разбить текст на слова (lowercase, только буквы)
     static std::vector<std::string> tokenize(const std::string& text);
 
-private:
+  private:
     mutable std::atomic<DocumentId> next_id_;
 };
 
