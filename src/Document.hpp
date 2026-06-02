@@ -1,14 +1,12 @@
 #pragma once
-#include <cstdint>
 #include <string>
+#include <cstdint>
 
-namespace indexer
-{
+namespace indexer {
 
 using DocumentId = std::uint64_t;
 
-struct Document
-{
+struct Document {
     DocumentId id;
     std::string name;
     std::string text;
